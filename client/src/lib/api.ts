@@ -25,13 +25,13 @@ export const workAPI = {
 // Blog API
 export const blogAPI = {
   getAll: () => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/blog'),
-  getById: (id: string) => fetchAPI(`/blog/${id}`),
+  getById: (id: string) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/blog/${id}`),
 };
 
 // Skills API
 export const skillsAPI = {
   getAll: (type?: 'design' | 'development' | 'tools') => {
-    const url = type ? `/skills?type=${type}` : 'https://final-host-portfolio-production-6de7.up.railway.app/api/skills';
+    const url = type ? `https://final-host-portfolio-production-6de7.up.railway.app/api/skills?type=${type}` : 'https://final-host-portfolio-production-6de7.up.railway.app/api/skills';
     return fetchAPI(url);
   },
 };
@@ -41,7 +41,7 @@ export const cvAPI = {
   get: () => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/cv'),
   getDownloadUrl: () => {
     const baseUrl = API_URL.replace('https://final-host-portfolio-production-6de7.up.railway.app/api', '');
-    return `${baseUrl}/uploads`;
+    return `${baseUrl}https://final-host-portfolio-production-6de7.up.railway.app/api/uploads`;
   },
 };
 

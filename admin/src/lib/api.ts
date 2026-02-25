@@ -50,7 +50,7 @@ export const authAPI = {
 export const workAPI = {
   getAll: () => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/work'),
   getById: (id: string) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/work/${id}`),
-  create: (work: any) => fetchAPI('/work', {
+  create: (work: any) => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/work', {
     method: 'POST',
     body: JSON.stringify(work),
   }),
@@ -58,7 +58,7 @@ export const workAPI = {
     method: 'PUT',
     body: JSON.stringify(work),
   }),
-  delete: (id: string) => fetchAPI(`/work/${id}`, {
+  delete: (id: string) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/work/${id}`, {
     method: 'DELETE',
   }),
 };
@@ -75,7 +75,7 @@ export const blogAPI = {
     method: 'PUT',
     body: JSON.stringify(blog),
   }),
-  delete: (id: string) => fetchAPI(`/blog/${id}`, {
+  delete: (id: string) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/blog/${id}`, {
     method: 'DELETE',
   }),
 };
@@ -87,7 +87,7 @@ export const skillsAPI = {
     return fetchAPI(url);
   },
   getById: (id: string) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/skills/${id}`),
-  create: (skill: any) => fetchAPI('/skills', {
+  create: (skill: any) => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/skills', {
     method: 'POST',
     body: JSON.stringify(skill),
   }),
