@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://final-host-portfolio-production-6de7.up.railway.app/api';
 
 function getAuthToken() {
   return localStorage.getItem('admin_token');
@@ -31,7 +31,7 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
 // Auth API
 export const authAPI = {
   login: async (email: string, password: string) => {
-    const data = await fetchAPI('/auth/login', {
+    const data = await fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/auth/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
     });
@@ -48,13 +48,13 @@ export const authAPI = {
 
 // Work API
 export const workAPI = {
-  getAll: () => fetchAPI('/work'),
+  getAll: () => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/work'),
   getById: (id: string) => fetchAPI(`/work/${id}`),
   create: (work: any) => fetchAPI('/work', {
     method: 'POST',
     body: JSON.stringify(work),
   }),
-  update: (id: string, work: any) => fetchAPI(`/work/${id}`, {
+  update: (id: string, work: any) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/work/${id}`, {
     method: 'PUT',
     body: JSON.stringify(work),
   }),
@@ -65,9 +65,9 @@ export const workAPI = {
 
 // Blog API
 export const blogAPI = {
-  getAll: () => fetchAPI('/blog'),
-  getById: (id: string) => fetchAPI(`/blog/${id}`),
-  create: (blog: any) => fetchAPI('/blog', {
+  getAll: () => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/blog'),
+  getById: (id: string) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/blog/${id}`),
+  create: (blog: any) => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/blog', {
     method: 'POST',
     body: JSON.stringify(blog),
   }),
@@ -86,23 +86,23 @@ export const skillsAPI = {
     const url = type ? `/skills?type=${type}` : '/skills';
     return fetchAPI(url);
   },
-  getById: (id: string) => fetchAPI(`/skills/${id}`),
+  getById: (id: string) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/skills/${id}`),
   create: (skill: any) => fetchAPI('/skills', {
     method: 'POST',
     body: JSON.stringify(skill),
   }),
-  update: (id: string, skill: any) => fetchAPI(`/skills/${id}`, {
+  update: (id: string, skill: any) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/skills/${id}`, {
     method: 'PUT',
     body: JSON.stringify(skill),
   }),
-  delete: (id: string) => fetchAPI(`/skills/${id}`, {
+  delete: (id: string) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/skills/${id}`, {
     method: 'DELETE',
   }),
 };
 
 // CV API
 export const cvAPI = {
-  get: () => fetchAPI('/cv'),
+  get: () => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/cv'),
   upload: async (file: File) => {
     const formData = new FormData();
     formData.append('cv', file);
@@ -123,7 +123,7 @@ export const cvAPI = {
 
     return response.json();
   },
-  delete: () => fetchAPI('/cv', {
+  delete: () => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/cv', {
     method: 'DELETE',
   }),
   getDownloadUrl: (filename: string) => {
