@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  color: #E6EEF8;
+  background: #0B0F16;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@layer components {
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-card-hover hover:scale-[1.02];
+  }
+  
+  .btn-primary {
+    @apply bg-accent hover:bg-accent2 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:shadow-accent;
+  }
+  
+  .btn-secondary {
+    @apply bg-card hover:bg-card2 text-text border border-border px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  }
+  
+  .input-field {
+    @apply bg-card border border-border rounded-lg px-4 py-3 text-text placeholder-muted focus:border-accent focus:outline-none transition-colors duration-200;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #101826;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF2D6D;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF3D8A;
+}
