@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || 'https://final-host-portfolio-production-6de7.up.railway.app/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://final-host-portfolio-production-6de7.up.railway.app/api/';
 
 function getAuthToken() {
   return localStorage.getItem('admin_token');
