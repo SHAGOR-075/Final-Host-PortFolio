@@ -49,7 +49,7 @@ export const authAPI = {
 // Work API
 export const workAPI = {
   getAll: () => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/work'),
-  getById: (id: string) => fetchAPI(`/work/${id}`),
+  getById: (id: string) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/work/${id}`),
   create: (work: any) => fetchAPI('/work', {
     method: 'POST',
     body: JSON.stringify(work),
@@ -71,7 +71,7 @@ export const blogAPI = {
     method: 'POST',
     body: JSON.stringify(blog),
   }),
-  update: (id: string, blog: any) => fetchAPI(`/blog/${id}`, {
+  update: (id: string, blog: any) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/blog/${id}`, {
     method: 'PUT',
     body: JSON.stringify(blog),
   }),
@@ -83,7 +83,7 @@ export const blogAPI = {
 // Skills API
 export const skillsAPI = {
   getAll: (type?: 'design' | 'development' | 'tools') => {
-    const url = type ? `/skills?type=${type}` : '/skills';
+    const url = type ? `/skills?type=${type}` : 'https://final-host-portfolio-production-6de7.up.railway.app/api/skills';
     return fetchAPI(url);
   },
   getById: (id: string) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/skills/${id}`),
@@ -108,7 +108,7 @@ export const cvAPI = {
     formData.append('cv', file);
     
     const token = getAuthToken();
-    const response = await fetch(`${API_URL}/cv/upload`, {
+    const response = await fetch(`${API_URL}https://final-host-portfolio-production-6de7.up.railway.app/api/cv/upload`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -127,7 +127,7 @@ export const cvAPI = {
     method: 'DELETE',
   }),
   getDownloadUrl: (filename: string) => {
-    const baseUrl = API_URL.replace('/api', '');
+    const baseUrl = API_URL.replace('https://final-host-portfolio-production-6de7.up.railway.app/api', '');
     return `${baseUrl}/uploads/${filename}`;
   },
 };

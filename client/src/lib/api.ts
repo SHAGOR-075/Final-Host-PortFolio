@@ -18,29 +18,29 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
 
 // Work API
 export const workAPI = {
-  getAll: () => fetchAPI('/work'),
-  getById: (id: string) => fetchAPI(`/work/${id}`),
+  getAll: () => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/work'),
+  getById: (id: string) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/work/${id}`),
 };
 
 // Blog API
 export const blogAPI = {
-  getAll: () => fetchAPI('/blog'),
+  getAll: () => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/blog'),
   getById: (id: string) => fetchAPI(`/blog/${id}`),
 };
 
 // Skills API
 export const skillsAPI = {
   getAll: (type?: 'design' | 'development' | 'tools') => {
-    const url = type ? `/skills?type=${type}` : '/skills';
+    const url = type ? `/skills?type=${type}` : 'https://final-host-portfolio-production-6de7.up.railway.app/api/skills';
     return fetchAPI(url);
   },
 };
 
 // CV API
 export const cvAPI = {
-  get: () => fetchAPI('/cv'),
+  get: () => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/cv'),
   getDownloadUrl: () => {
-    const baseUrl = API_URL.replace('/api', '');
+    const baseUrl = API_URL.replace('https://final-host-portfolio-production-6de7.up.railway.app/api', '');
     return `${baseUrl}/uploads`;
   },
 };
@@ -48,7 +48,7 @@ export const cvAPI = {
 // Contact API
 export const contactAPI = {
   send: async (data: { name: string; phone?: string; email: string; subject: string; message: string }) => {
-    const response = await fetch(`${API_URL}/contact`, {
+    const response = await fetch(`${API_URL}https://final-host-portfolio-production-6de7.up.railway.app/api/contact`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
