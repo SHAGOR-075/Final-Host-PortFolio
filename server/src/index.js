@@ -56,7 +56,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio_dashboard')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://FinalPortfolio:FinalPortfolio2025@portfolio.gv9on3q.mongodb.net/?appName=Portfolio')
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(PORT, () => {
