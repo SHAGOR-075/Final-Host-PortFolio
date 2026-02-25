@@ -43,7 +43,14 @@ app.use('/api/auth', authRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/chatbot', chatbotRoutes);
 
-// Health check
+// Root and health check routes (useful for Railway/Vercel "Cannot GET /")
+app.get('/', (req, res) => {
+  res.json({
+    status: 'OK',
+    message: 'Portfolio API is running. Try /api/health or other /api/* endpoints.',
+  });
+});
+
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Server is running' });
 });
