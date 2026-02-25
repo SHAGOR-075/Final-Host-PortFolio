@@ -23,24 +23,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-const allowedOrigins = [
-  process.env.CLIENT_URL || 'https://shagor-port-folio.vercel.app',
-  process.env.ADMIN_URL || 'https://portfolio-admin-orpin.vercel.app',
-  'http://localhost:5173',
-  'http://localhost:5174',
-];
-
+// CORS: allow all origins (safe here because we use Bearer tokens, not cookies)
 app.use(
   cors({
-    origin: (origin, callback) => {
-      // Allow requests with no origin (like mobile apps or curl) and any origin in the whitelist
-      if (!origin || allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-      return callback(new Error('Not allowed by CORS'));
-    },
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    credentials: true,
   })
 );
 
