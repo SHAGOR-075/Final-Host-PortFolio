@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || 'https://final-host-portfolio-production-6de7.up.railway.app/api/';
+const API_URL = import.meta.env.VITE_API_URL || 'https://final-host-portfolio-production-6de7.up.railway.app/api';
 
 async function fetchAPI(endpoint: string, options: RequestInit = {}) {
   const response = await fetch(`${API_URL}${endpoint}`, {
@@ -18,37 +18,37 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
 
 // Work API
 export const workAPI = {
-  getAll: () => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/work'),
-  getById: (id: string) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/work/${id}`),
+  getAll: () => fetchAPI('/work'),
+  getById: (id: string) => fetchAPI(`/work/${id}`),
 };
 
 // Blog API
 export const blogAPI = {
-  getAll: () => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/blog'),
-  getById: (id: string) => fetchAPI(`https://final-host-portfolio-production-6de7.up.railway.app/api/blog/${id}`),
+  getAll: () => fetchAPI('/blog'),
+  getById: (id: string) => fetchAPI(`/blog/${id}`),
 };
 
 // Skills API
 export const skillsAPI = {
   getAll: (type?: 'design' | 'development' | 'tools') => {
-    const url = type ? `https://final-host-portfolio-production-6de7.up.railway.app/api/skills?type=${type}` : 'https://final-host-portfolio-production-6de7.up.railway.app/api/skills';
+    const url = type ? `/skills?type=${type}` : '/skills';
     return fetchAPI(url);
   },
 };
 
 // CV API
 export const cvAPI = {
-  get: () => fetchAPI('https://final-host-portfolio-production-6de7.up.railway.app/api/cv'),
+  get: () => fetchAPI('/cv'),
   getDownloadUrl: () => {
-    const baseUrl = API_URL.replace('https://final-host-portfolio-production-6de7.up.railway.app/api', '');
-    return `${baseUrl}https://final-host-portfolio-production-6de7.up.railway.app/api/uploads`;
+    const baseUrl = API_URL.replace('/api', '');
+    return `${baseUrl}/uploads`;
   },
 };
 
 // Contact API
 export const contactAPI = {
   send: async (data: { name: string; phone?: string; email: string; subject: string; message: string }) => {
-    const response = await fetch(`${API_URL}https://final-host-portfolio-production-6de7.up.railway.app/api/contact`, {
+    const response = await fetch(`${API_URL}/contact`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
